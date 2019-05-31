@@ -5,8 +5,8 @@ let oauthClient = require('./auth.js').oauthClient;
 
 let sandBoxBaseURL = 'https://sandbox-quickbooks.api.intuit.com'
 let productionBaseURL = 'https://quickbooks.api.intuit.com'
-vendorRouter.use(verifyToken)
-vendorRouter.get('/',(req,res)=>{
+
+vendorRouter.get('/',verifyToken,(req,res)=>{
     let method = 'GET'
     let query = 'select * from vendor'
     let url = `/v3/company/123146517189229/query?query=${query}&minorversion=38`

@@ -32,7 +32,7 @@ authRouter.use('/callback', function(req, res) {
 
       });
 });
-var verifytoken = function(req,res,next) {
+exports.verifytoken = function(req,res,next) {
     if(oauthClient.isAccessTokenValid()) {
         next()
     } 
@@ -53,4 +53,3 @@ var verifytoken = function(req,res,next) {
 }
 module.exports =authRouter
 module.exports = oauthClient
-module.exports = verifytoken
