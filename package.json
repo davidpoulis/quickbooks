@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app"
+    "start": "node app.js"
   },
   "author": "David Paulus",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/pubsub": "^0.29.1",
     "body-parser": "latest",
     "dotenv": "^5.0.1",
     "ejs": "^2.5.2",
@@ -17,10 +18,8 @@
     "express-session": "^1.14.2",
     "intuit-oauth": "^1.2.0",
     "mongoose": "^5.5.12",
-    "ngrok": "^2.2.9",
     "node-quickbooks": "^2.0.31",
-    "path": "^0.12.7",
-    "properties-reader": "0.0.16",
+    "nodemon": "^1.19.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.4"
   }

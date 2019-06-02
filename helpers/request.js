@@ -7,6 +7,7 @@ exports.send= async (data,url,method) =>{
     method: method,
     uri: url,
     body: data ,
+    headers:headers,
     json: true // Automatically stringifies the body to JSON
 };
  console.log("options",options)

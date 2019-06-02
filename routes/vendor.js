@@ -1,7 +1,8 @@
 const express = require('express')
+const verifyToken = require('./auth').verifyToken;
+const oauthClient = require('./auth.js').oauthClient;
 const vendorRouter = express.Router()
-let verifyToken = require('./auth').verifytoken
-let oauthClient = require('./auth.js').oauthClient;
+
 
 let sandBoxBaseURL = 'https://sandbox-quickbooks.api.intuit.com'
 let productionBaseURL = 'https://quickbooks.api.intuit.com'
@@ -21,7 +22,7 @@ vendorRouter.get('/',verifyToken,(req,res)=>{
     });
 
 });
-vendorRouter.post('/', verifyToken,function(req,res){
+vendorRouter.post('/',verifyToken,function(req,res){
 
     let method = 'POST'
     let sandBoxBaseURL = 'https://sandbox-quickbooks.api.intuit.com'

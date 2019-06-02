@@ -4,11 +4,10 @@ var app = express();
 
 var bodyParser = require('body-parser');
 var vendorRouter= require('./routes/vendor')
-var customerRouter = require('./routes/customer')
-var authRouter = require('./routes/auth')
+var authRouter = require('./routes/auth').authRouter
+
 app.use(bodyParser.json());
 
-app.use('/customer',customerRouter)
 app.use('/vendor',vendorRouter)
 app.use('/auth',authRouter)
 
