@@ -3,7 +3,6 @@ var app = express();
 
 var bodyParser = require('body-parser');
 var vendorRouter = require('./routes/vendor')
-var authRouter = require('./routes/auth').authRouter
 
 
 
