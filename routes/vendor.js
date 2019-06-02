@@ -17,8 +17,8 @@ vendorRouter.get('/',(req,res)=>{
     let url = `${sandBoxBaseURL}${endpoint}`
 
     request.send(null,url,method).then(resp=>{
-        console.log(resp)
-    },err=>console)
+       res.json(resp)
+    },err=>res.json(err))
     
 
 });
