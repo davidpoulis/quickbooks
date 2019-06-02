@@ -17,10 +17,13 @@
     "express": "^4.14.0",
     "express-session": "^1.14.2",
     "intuit-oauth": "^1.2.0",
+    "mongodb": "^3.2.6",
     "mongoose": "^5.5.12",
     "node-quickbooks": "^2.0.31",
     "nodemon": "^1.19.1",
     "request": "^2.88.0",
-    "request-promise": "^4.2.4"
+    "request-promise": "^4.2.4",
+    "superagent": "^5.0.5",
+    "superagent-use": "^0.1.0"
   }
 }
