@@ -9,9 +9,9 @@ let db = "mongodb+srv://earlybreakfast-local:vjQMe50CMDB0mBYA@cluster0-tf6jt.mon
             var db = client.db('quickbooks')
             var collection = db.collection('bearerToken')
             collection.find().toArray((err, items) => {
-                console.log("db", items[0].accessToken)
                let accessToken = items[0].accessToken;
-                callback(accessToken) 
+               let realmId = items[0].realmId
+                callback(accessToken,realmId) 
             });
     
         }

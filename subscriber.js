@@ -34,5 +34,4 @@ const messageHandler = message => {
   message.ack();
 };
 
-// Listen for new messages until timeout is hit
 subscription.on(`message`, messageHandler);

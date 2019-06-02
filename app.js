@@ -10,7 +10,7 @@ var authRouter = require('./routes/auth').authRouter
 app.use(bodyParser.json());
 
 app.use('/vendor', vendorRouter)
-app.use('/auth', authRouter)
+
 
 const server = app.listen(process.env.PORT || 3000, () => {
     console.log("server is up")
