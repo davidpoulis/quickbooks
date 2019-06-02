@@ -1,5 +1,7 @@
 FROM node:10-alpine
 
+EXPOSE 3000
+
 RUN mkdir -p /src/app
 
 WORKDIR /src/app
