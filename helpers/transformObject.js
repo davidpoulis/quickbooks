@@ -1,18 +1,18 @@
 
  exports.transform = function(obj){
    var data= `{
-        "FullyQualifiedName":"${obj.firstName} ${obj.lastName}", 
+        "FullyQualifiedName":"${obj.firstName | ""} ${obj.lastName | ""}", 
         "PrimaryEmailAddr": {
-          "Address":" ${obj.email}"
+          "Address":" ${obj.email | ""}"
         }, 
-        "DisplayName": "${obj.firstName} ${obj.lastName}", 
+        "DisplayName": "${obj.firstName | ""} ${obj.lastName | ""}", 
         "Suffix": "", 
         "Title": "", 
         "MiddleName": "", 
         "Notes": "Here are other details.", 
-        "FamilyName":"${obj.lastName}" , 
+        "FamilyName":"${obj.lastName | ""}" , 
         "PrimaryPhone": {
-          "FreeFormNumber":" ${obj.phoneNumber}"
+          "FreeFormNumber":"${obj.phoneNumber| ""}"
         }, 
         "CompanyName": "", 
         "BillAddr": {
