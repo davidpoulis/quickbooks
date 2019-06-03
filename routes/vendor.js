@@ -16,10 +16,9 @@ vendorRouter.get('/', (req, res) => {
 
         let endpoint = `/v3/company/${body.realmid}/query?query=${query}&minorversion=38`
         let url = `${sandBoxBaseURL}${endpoint}`
-        console.log(body)
         request.send(null, url, method,body.token).then(resp => {
             res.json(resp)
-        })
+        }).catch((err)=>res.json(err))
     }).catch((err)=>res.json(err))
 
 
