@@ -16,9 +16,9 @@ const subscriptionName = 'my-sub2';
 const subscription = pubsub.subscription(subscriptionName);
 
 const messageHandler = message => {
-  console.log(`Received message ${message.id}:`);
-  console.log(`Data: ${message.data}`);
-  console.log(`tAttributes: ${message.attributes}`);
+  // console.log(`Received message ${message.id}:`);
+  // console.log(`Data: ${message.data}`);
+  // console.log(`tAttributes: ${message.attributes}`);
   //transform data from buffer to json
   msgString = JSON.parse(message.data.toString('utf8'))
   sendData = []

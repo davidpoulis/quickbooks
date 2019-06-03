@@ -1,10 +1,23 @@
 var request = require('request-promise')
 
-let shared = require('../shared')
+  exports.getAccessToken = async() =>{
+    var options = {
+      method: 'GET',
+      uri: 'https://earlybreakfast.co/quickbooks/token',
+      
+      headers: {
+        "Authorization": `Bearer ${accessToken}`
+      },
+      json: true // Automatically stringifies the body to JSON
+    };
+    await request(options)
+      .then((parsedBody)=>{
+        return parsedBody
+      })
+      .catch(err=> {return err});
+  }
 
-shared.connect((accessToken,realmId) => {
-
-  exports.send = async (data, url, method) => {
+  exports.send = async (data, url, method, accessToken) => {
     var options = {
       method: method,
       uri: url,
@@ -16,14 +29,16 @@ shared.connect((accessToken,realmId) => {
       },
       json: true // Automatically stringifies the body to JSON
     };
-    console.log("options", options)
 
     await request(options)
       .then(function (parsedBody) {
-        console.log("response: ",parsedBody);
+        console.log("#################################################")
+       console.log("response:",parsedBody)
+       return parsedBody;
       })
       .catch(function (err) {
-        console.log('we have error: ', err)
+        console.log("++++++++++++++++++++++++++++++++++++++++++++++++++")
+        
+       return err;
       });
   }
-})
