@@ -1,44 +1,37 @@
 var request = require('request-promise')
 
-  exports.getAccessToken = async() =>{
+  exports.getAccessToken = (callback,err) =>{
     var options = {
       method: 'GET',
       uri: 'https://earlybreakfast.co/quickbooks/token',
-      
-      headers: {
-        "Authorization": `Bearer ${accessToken}`
-      },
-      json: true // Automatically stringifies the body to JSON
+       json: true // Automatically stringifies the body to JSON
     };
-    await request(options)
+      request(options)
       .then((parsedBody)=>{
-        return parsedBody
+      
+        callback(parsedBody,null) 
       })
-      .catch(err=> {return err});
+      .catch(err=> {callback(null,err) });
   }
 
-  exports.send = async (data, url, method, accessToken) => {
+  exports.send = (data, url, method, accessToken,callback) => {
     var options = {
       method: method,
       uri: url,
       body: data,
       headers: {
-        "Authorization": `Bearer ${accessToken}`,
-       "Content-Type":"text/plain"
-
+        "Authorization": `Bearer ${accessToken}`
       },
       json: true // Automatically stringifies the body to JSON
     };
 
-    await request(options)
+     request(options)
       .then(function (parsedBody) {
-        console.log("#################################################")
-       console.log("response:",parsedBody)
-       return parsedBody;
+        
+        callback(parsedBody,null);
       })
       .catch(function (err) {
-        console.log("++++++++++++++++++++++++++++++++++++++++++++++++++")
-        
-       return err;
+
+      callback(null,err)
       });
   }

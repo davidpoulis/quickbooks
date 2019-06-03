@@ -29,16 +29,25 @@ const messageHandler = message => {
       })
     }
   }
-  request.getAccessToken().then((body)=>{
-    var url = `/v3/company/${body.realmid}/customer?minorversion=38`
-var base_url_sandbox = 'https://sandbox-quickbooks.api.intuit.com'
-var base_url_production = 'https://quickbooks.api.intuit.com'
-const END_POINT = base_url_sandbox + url
-const METHOD = 'POST'
-    request.send(sendData, END_POINT, METHOD,body.token).then((resp)=>{
-      console.log(resp)
-    }).catch(err=> console.log(err))
-  }).catch((err)=> console.log(err))
+  request.getAccessToken((body,err)=>{
+    if(err){
+      console.log(err)
+    }else{
+      var url = `/v3/company/${body.realmid}/customer?minorversion=38`
+      var base_url_sandbox = 'https://sandbox-quickbooks.api.intuit.com'
+      var base_url_production = 'https://quickbooks.api.intuit.com'
+      const END_POINT = base_url_sandbox + url
+      const METHOD = 'POST'
+          request.send(sendData, END_POINT, METHOD,body.token,(data,err)=>{
+            if(err){
+              console.log("Error",err)
+            }else{
+              console.log("succuss",data)
+            }
+          })
+    }
+ 
+  })
   
  // Ack the messae
  message.ack();
